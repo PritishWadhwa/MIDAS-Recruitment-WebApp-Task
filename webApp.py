@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, redirect, session
+from flask_frozen import Freezer
 from authlib.integrations.flask_client import OAuth
-
 
 app = Flask(__name__)
 app.secret_key = 'random secret'
@@ -51,7 +51,11 @@ def logout():
     return redirect('/')
 
 
+freezer = Freezer(app)
+
+
 if __name__ == '__main__':
+    freezer.freeze()
     app.static_folder = 'static'
-    app.debug = True
+    # app.debug = True
     app.run()
