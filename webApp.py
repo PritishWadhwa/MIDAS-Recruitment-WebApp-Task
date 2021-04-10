@@ -51,11 +51,11 @@ def logout():
     return redirect('/')
 
 
-freezer = Freezer(app)
+# freezer = Freezer(app)
 
 
 if __name__ == '__main__':
-    freezer.freeze()
+    # freezer.freeze()
     app.static_folder = 'static'
-    # app.debug = True
+    app.debug = True
     app.run()
